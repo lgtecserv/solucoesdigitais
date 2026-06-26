@@ -13,6 +13,23 @@ export function ContactForm() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get("name") as string;
+    const company = formData.get("company") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const message = formData.get("message") as string;
+
+    let text = `Olá, o meu nome é ${name}.`;
+    if (company) text += `\nEmpresa: ${company}`;
+    if (email) text += `\nEmail: ${email}`;
+    if (phone) text += `\nTelefone: ${phone}`;
+    if (service) text += `\nServiço de interesse: ${service}`;
+    text += `\n\nMensagem:\n${message}`;
+
+    const whatsappUrl = `https://wa.me/258872711984?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, "_blank");
+
     toast.success(t.contact.form.success);
     (e.target as HTMLFormElement).reset();
     setService("");

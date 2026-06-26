@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Server } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { useI18n } from "@/lib/i18n";
+import logoImg from "@/assets/logo.png";
 
 export function Header() {
   const { t, lang, setLang } = useI18n();
@@ -20,10 +21,8 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-card)]">
-            <Server className="h-5 w-5" />
-          </span>
-          <span>{t.company}</span>
+          <img src={logoImg} alt={t.company} className="h-10 w-auto object-contain" />
+          <span className="sr-only">{t.company}</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -55,7 +54,7 @@ export function Header() {
             ))}
           </div>
           <Button asChild size="sm" className="hidden md:inline-flex">
-            <Link to="/contato">{t.nav.quote}</Link>
+            <a href="https://wa.me/258872711984" target="_blank" rel="noopener noreferrer">{t.nav.quote}</a>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -92,7 +91,7 @@ export function Header() {
                 ))}
               </div>
               <Button asChild className="mt-6 w-full">
-                <Link to="/contato" onClick={() => setOpen(false)}>{t.nav.quote}</Link>
+                <a href="https://wa.me/258872711984" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{t.nav.quote}</a>
               </Button>
             </SheetContent>
           </Sheet>

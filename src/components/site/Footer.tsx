@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Server } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import logoImg from "@/assets/logo.png";
 
 export function Footer() {
   const { t } = useI18n();
@@ -9,10 +10,8 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 font-display text-lg font-semibold">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-[image:var(--gradient-primary)]">
-              <Server className="h-5 w-5" />
-            </span>
-            {t.company}
+            <img src={logoImg} alt={t.company} className="h-10 w-auto object-contain" />
+            <span className="sr-only">{t.company}</span>
           </div>
           <p className="mt-3 max-w-xs text-sm text-accent-foreground/70">{t.footer.tagline}</p>
         </div>
@@ -38,16 +37,16 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">{t.footer.cols.contact}</h4>
           <ul className="mt-3 space-y-2 text-sm text-accent-foreground/70">
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {t.contact.info.address}</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +351 210 000 000</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@nexusti.com</li>
+            <li className="flex items-center gap-2"><MapPin className="h-4 w-4 shrink-0" /> <span className="truncate">{t.contact.info.address}</span></li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0" /> <span className="truncate">+258 87 271 1984</span></li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0" /> <span className="truncate">comercial@solucoesdigitais.co.mz</span></li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-2 py-5 text-xs text-accent-foreground/60 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {t.company}. {t.footer.rights}</span>
-          <span>Lisboa · Porto · Madrid</span>
+          <span>Matola · Zambézia</span>
         </div>
       </div>
     </footer>
