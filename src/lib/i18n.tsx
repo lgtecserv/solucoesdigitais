@@ -169,7 +169,7 @@ export const translations = {
       contact: { title: "Contact — NexusTI", desc: "Talk to NexusTI and get a free assessment." },
     },
   },
-} as const;
+};
 
 type I18nCtx = { lang: Lang; setLang: (l: Lang) => void; t: Dict };
 const Ctx = createContext<I18nCtx | null>(null);
@@ -190,7 +190,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof document !== "undefined") document.documentElement.lang = lang;
   }, [lang]);
-  return <Ctx.Provider value={{ lang, setLang, t: translations[lang] as Dict }}>{children}</Ctx.Provider>;
+  return <Ctx.Provider value={{ lang, setLang, t: translations[lang] }}>{children}</Ctx.Provider>;
 }
 
 export function useI18n() {
