@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Tipos MIME para ficheiros JavaScript (necessario para ES modules)
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
+
+# Se o ficheiro ou pasta existe, sirva-o diretamente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redireciona tudo para index.html (SPA fallback)
+RewriteRule ^ index.html [L]

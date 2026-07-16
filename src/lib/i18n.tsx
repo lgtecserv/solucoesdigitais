@@ -78,7 +78,7 @@ export const translations = {
         message: "Mensagem", submit: "Enviar Pedido",
         success: "Mensagem enviada com sucesso! Entraremos em contacto brevemente.",
       },
-      info: { title: "Informações de Contacto", address: "Av. de Namaacha, Bairro 25 de Setembro, Matola – Zambézia", hours: "Segunda a Sexta" },
+      info: { title: "Informações de Contacto", address: "Moçambique - Cidade de Mocuba", hours: "Segunda a Sexta" },
     },
     footer: {
       tagline: "Serviços de Informática, Tecnologia, Suporte Técnico e Desenvolvimento Web.",
@@ -165,7 +165,7 @@ export const translations = {
         message: "Message", submit: "Send Request",
         success: "Message sent successfully! We will contact you shortly.",
       },
-      info: { title: "Contact Information", address: "Av. de Namaacha, Bairro 25 de Setembro, Matola – Zambézia", hours: "Monday to Friday" },
+      info: { title: "Contact Information", address: "Mozambique - Cidade de Mocuba", hours: "Monday to Friday" },
     },
     footer: {
       tagline: "IT Services, Technology, Technical Support and Web Development.",
